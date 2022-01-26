@@ -4,8 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var port = 80;
+
 
 var app = express();
 
@@ -41,7 +44,7 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 
 //listen on port 80
-var usedPort = process.env.PORT || 80;
-server.listen(usedPort, () => {
+var usedPort = process.env.PORT || port;
+app.listen(usedPort, () => {
 console.log("Server started and listening on port " + usedPort + ".");
 });
